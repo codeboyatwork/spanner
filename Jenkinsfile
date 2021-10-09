@@ -18,6 +18,7 @@ stages {
          steps{
             withCredentials([file(credentialsId: 'gcloud-spanner', variable: 'gcs')]) {
                 sh "'${gsdk}/gcloud' auth activate-service-account --key-file '${gcs}'"
+                sh "'${gsdk}/gcloud' auth application-default login --client-id-file='${gcs}'"
             }
             }
         }
