@@ -2,7 +2,7 @@ package spanner_demo.spanner;
 
 import junit.framework.TestCase;
 
-public class Launcher extends TestCase {
+public class LauncherTest extends TestCase {
 	public static final String INSTANCE_ID = "my-spanner-td";
 	public static final String DATABASE_ID = "demo_spanner";
 
