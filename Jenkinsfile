@@ -13,6 +13,13 @@ stages {
 	      git 'https://github.com/codeboyatwork/spanner.git'              
 	     }	      
 	    } 
+        stage("Init GCP"){
+         steps{
+            withCredentials([file(credentialsId: 'gcloud-spanner', variable: 'gcs')]) {
+                sh "'${gsdk}/gcloud' auth activate-service-account --key-file '${gcs}'"
+            }
+            }
+        }
 	    stage('Run Spanner Tests') {
 	      steps {
 	      	sh "'${mvnHome}/bin/mvn' clean test"
