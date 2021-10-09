@@ -4,6 +4,7 @@ label "node-2004"
 }  
 environment{
 mvnHome = tool name: 'maven'
+gsdk = tool 'googlesdk-agent'
 }
 stages {
 	    // reference to maven
