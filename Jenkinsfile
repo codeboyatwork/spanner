@@ -19,6 +19,7 @@ stages {
             withCredentials([file(credentialsId: 'gcloud-spanner', variable: 'gcs')]) {
                 sh "'${gsdk}/gcloud' auth activate-service-account --key-file '${gcs}'"
                 sh "export GOOGLE_APPLICATION_CREDENTIALS='${gcs}'"
+                sh "'${mvnHome}/bin/mvn' clean test"
                 }
             }
         }
